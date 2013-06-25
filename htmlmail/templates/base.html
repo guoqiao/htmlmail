@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}html-mail{% endblock %}</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstraped/css/bootstraped.css" type="text/css" />
+</head>
+<body>
+<div id="header">{% block header %}{% endblock %}</div>
+{% if messages %}
+<ul class="messages unstyled">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div id="container" class='container'>
+    <div id="content">{% block content %}{% endblock %}</div>
+</div>
+<div id="footer">{% block footer %}{% endblock %}</div>
+<script src="{{ STATIC_URL }}jquery/js/jquery.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}bootstraped/js/bootstraped.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>模板列表</h2>
+<ul class="unstyled">
+    <li>
+    <a target="_blank" href="{% url preview 'evernote' %}">evernote</a>
+    </li>
+    <li>
+    <a target="_blank" href="{% url preview 'hello' %}">hello</a>
+    </li>
+</ul>
+<h2>发送邮件</h2>
+<form action="" method="post" class="form">
+    {% csrf_token %}
+    <table class="table table-bordered table-hover">
+    {{form.as_table}}
+    </table>
+    <div class="form-actions">
+    <button type="submit" class="btn btn-primary btn-large">发送</button>
+    </div>
+</form>
+{% endblock %}

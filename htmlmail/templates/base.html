@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>{% block title %}html-mail{% endblock %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}bootstraped/css/bootstraped.css" type="text/css" />
+    {% block css %}
+    {% endblock css %}
 </head>
 <body>
 <div id="header">{% block header %}{% endblock %}</div>

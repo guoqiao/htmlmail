@@ -1,18 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import re
 from django import forms
+from .models import Send
 
-TMPLS = (
-    ('evernote','evernote'),
-    ('hello','hello'),
-)
 
-class SendForm(forms.Form):
-    tmpl = forms.ChoiceField(label='模板',choices=TMPLS,required=False)
-    reply_to = forms.EmailField(label='回复到')
-    to = forms.CharField(
-            label='收件人',
-            max_length=1024,
-            widget = forms.Textarea(attrs={"class":"span10"}),
-        )
+class SendForm(forms.ModelForm):
+    class Meta:
+        model = Send
+        fields = ('tmail','mails')
+
+    def clean_mails(self):
+        text = self.cleaned_data['mails']
+        r = re.compile(r'([\w\-\.]+@(\w[\w\-]+\.)+[\w\-]+)')
+        matches = r.findall(text)
+        mails = set([])
+        for match in matches:
+            m = match[0]
+            if m not in mails:
+                mails.add(m)
+                print 'match mail:',m
+            else:
+                print 'skip repteated mail:',m
+        return ','.join(mails)
+

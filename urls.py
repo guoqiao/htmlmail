@@ -4,7 +4,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('htmlmail.views',
     url(r'^$', 'home', name='home'),
-    url(r'^preview/(?P<name>\w+)$', 'preview', name='preview'),
+    url(r'^preview/(?P<pk>\d+)$', 'preview', name='preview'),
 )
 
 urlpatterns += patterns('',

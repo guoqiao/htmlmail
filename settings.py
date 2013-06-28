@@ -121,6 +121,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'mailer',
+
     'statics',
     'htmlmail',
 )
@@ -164,4 +166,5 @@ SERVER_EMAIL=EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD='123456' # fill this in local.py
 EMAIL_SUBJECT_PREFIX='[html-mail]'
 
+EMAIL_BACKEND = "mailer.backend.DbBackend"
 EMAIL_REPLY_TO = 'guoqiao@insigma.com.cn'

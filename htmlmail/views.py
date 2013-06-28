@@ -14,13 +14,14 @@ APP_NAME = os.path.split(os.path.dirname(__file__))[-1]
 
 def home(request):
     if request.method == 'GET':
-        form = SendForm()
+        form = SendForm(initial={'mails':'guoqiao@insigma.com.cn,guoqiao@gmail.com'})
     else:
         form = SendForm(request.POST)
         if form.is_valid():
             send = form.save()
-            send.do()
-            messages.success(request,'发送成功!')
+            total,success = send.do()
+            msg = '发送%d,成功%d' % (total,success)
+            messages.success(request,msg)
             return redirect('home')
 
     ctx = {'form':form}

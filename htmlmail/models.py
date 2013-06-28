@@ -49,17 +49,28 @@ class Send(models.Model):
     def do(self):
         from_email = settings.EMAIL_HOST_USER
         tmail = self.tmail
+        total = 0
+        success = 0
         for mail in self.mails.split(','):
-            msg = EmailMultiAlternatives(
-                    tmail.title,
-                    tmail.text_content(),
-                    from_email,
-                    [mail],
-                    headers = {'Reply-To': tmail.reply}
-                )
-            msg.attach_alternative(tmail.html_content(), "text/html")
-            print 'sending mail to %s' % mail
-            msg.send()
+            total += 1
+            try:
+                msg = EmailMultiAlternatives(
+                        tmail.title,
+                        tmail.text_content(),
+                        from_email,
+                        [mail],
+                        headers = {'Reply-To': tmail.reply}
+                    )
+                msg.attach_alternative(tmail.html_content(), "text/html")
+                print 'sending mail to %s' % mail
+                msg.send()
+                success += 1
+            except:
+                print 'sending fail: %s' % mail
+                continue
         self.status = 'done'
         self.save()
+        from mailer.engine import send_all
+        send_all()
+        return total,success
 

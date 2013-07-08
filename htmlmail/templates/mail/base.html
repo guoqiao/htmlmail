@@ -8,7 +8,15 @@
 		/* Based on The MailChimp Reset INLINE: Yes. */
 		/* Client-specific Styles */
 		#outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
-		body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+        body {
+            width:100% !important;
+            -webkit-text-size-adjust:100%;
+            -ms-text-size-adjust:100%;
+            margin:0;
+            padding:0;
+            font-family: "Microsoft YaHei";
+            font-size: 14px;
+        }
 		/* Prevent Webkit and Windows Mobile platforms from changing default font sizes.*/
 		.ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
 		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
@@ -24,7 +32,14 @@
 
 		/* Yahoo paragraph fix
 		Bring inline: Yes. */
-		p {margin: 1em 0;}
+        p {
+            margin: 1em 0;
+            text-indent: 2em;
+        }
+
+        li {
+            margin: 1em 0;
+        }
 
 		/* Hotmail header color reset
 		Bring inline: Yes. */
@@ -42,7 +57,9 @@
 
 		/* Outlook 07, 10 Padding issue fix
 		Bring inline: No.*/
-		table td {border-collapse: collapse;}
+        table td {
+            border-collapse: collapse;
+        }
 
 		/* Remove spacing around Outlook 07, 10 tables
 		Bring inline: Yes */
@@ -133,15 +150,20 @@
 		</style>
 	<![endif]-->
 </head>
-<body>
+<body style="margin: 0; padding: 0;">
 <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
 <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
 	<tr>
 		<td valign="top">
 		<!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
-		<table cellpadding="0" cellspacing="0" border="0" align="center">
+		<table cellpadding="0" cellspacing="0" border="0" align="center" width="640">
             {% block content %}
-			<tr>
+			<tr id="row1">
+				<td width="200" valign="top"></td>
+				<td width="200" valign="top"></td>
+				<td width="200" valign="top"></td>
+			</tr>
+			<tr id="row2">
 				<td width="200" valign="top"></td>
 				<td width="200" valign="top"></td>
 				<td width="200" valign="top"></td>

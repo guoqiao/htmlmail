@@ -14,7 +14,11 @@ APP_NAME = os.path.split(os.path.dirname(__file__))[-1]
 
 def home(request):
     if request.method == 'GET':
-        form = SendForm(initial={'mails':'guoqiao@insigma.com.cn,guoqiao@gmail.com'})
+        initial={
+            'mails':'guoqiao@insigma.com.cn,guoqiao@gmail.com,pengxinwei@insigma.com.cn',
+            'tmail':1,
+        }
+        form = SendForm(initial=initial)
     else:
         form = SendForm(request.POST)
         if form.is_valid():

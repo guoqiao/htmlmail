@@ -24,7 +24,7 @@ def home(request):
         if form.is_valid():
             send = form.save()
             total,success = send.do()
-            msg = '发送%d,成功%d' % (total,success)
+            msg = '%d 封邮件正在等待发送,请稍候' % (total)
             messages.success(request,msg)
             return redirect('home')
 

@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import threading
 from django.db import models
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
+from mailer.engine import send_all
 
 class Tmail(models.Model):
     title = models.CharField('邮件标题',max_length=60)
@@ -24,6 +26,13 @@ class Tmail(models.Model):
 
     def text_content(self):
         return 'TODO'
+
+class Mailer(threading.Thread):
+
+    def run(self):
+        print 'send all in thread begin...'
+        send_all()
+        print 'send all in thread done...'
 
 class Send(models.Model):
     tmail = models.ForeignKey(Tmail,verbose_name='邮件模板')
@@ -70,7 +79,7 @@ class Send(models.Model):
                 continue
         self.status = 'done'
         self.save()
-        from mailer.engine import send_all
-        send_all()
+        mailer = Mailer()
+        mailer.start()
         return total,success
 

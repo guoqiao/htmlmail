@@ -1,2 +1,3 @@
 Django
 git+https://github.com/guoqiao/django-mailer.git
+git+https://github.com/guoqiao/django-statics.git

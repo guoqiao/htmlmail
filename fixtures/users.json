@@ -1,0 +1,20 @@
+[
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-07-09T04:21:33.697Z",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$DzF7Lz2yBW9J$7r1RLlLDuRnAJC0SD7whN+kbRTEqugi0Grymd1QXWf0=",
+            "email": "guoqiao@gmail.com",
+            "date_joined": "2013-06-26T02:35:50.923Z"
+        }
+    }
+]

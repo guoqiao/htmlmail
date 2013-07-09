@@ -1,0 +1,13 @@
+[
+    {
+        "pk": 1,
+        "model": "htmlmail.tmail",
+        "fields": {
+            "tname": "enrole",
+            "reply": "guoqiao@gmail.com",
+            "create": "2013-07-08T02:33:54.726Z",
+            "update": "2013-07-08T02:33:54.726Z",
+            "title": "\u7f51\u65b0\u667a\u80fd2013\u5168\u56fd\u5408\u4f5c\u4f19\u4f34\u62db\u52df"
+        }
+    }
+]

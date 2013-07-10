@@ -163,8 +163,12 @@ EMAIL_PORT='587'
 EMAIL_HOST_USER= 'spig@insigma.com.cn'
 DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
 SERVER_EMAIL=EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD='123456' # fill this in local.py
+EMAIL_HOST_PASSWORD='******' # fill this in local.py
 EMAIL_SUBJECT_PREFIX='[html-mail]'
 
 EMAIL_BACKEND = "mailer.backend.DbBackend"
-EMAIL_REPLY_TO = 'guoqiao@insigma.com.cn'
+
+try:
+    from local import *
+except:
+    pass

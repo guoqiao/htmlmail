@@ -68,7 +68,7 @@ class Send(models.Model):
                         tmail.text_content(),
                         from_email,
                         [mail],
-                        headers = {'Reply-To': tmail.reply}
+                        #headers = {'Reply-To': tmail.reply}
                     )
                 msg.attach_alternative(tmail.html_content(), "text/html")
                 print 'sending mail to %s' % mail

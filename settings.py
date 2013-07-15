@@ -1,4 +1,10 @@
 # Django settings for htmlmail project.
+import os
+from path import path
+
+FILE = path(os.path.abspath(__file__))
+HERE = FILE.parent
+PROJ_ROOT = HERE
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

@@ -169,7 +169,7 @@ EMAIL_SUBJECT_PREFIX='[html-mail]'
 
 EMAIL_BACKEND = "mailer.backend.DbBackend"
 
-EMIAL_SEND_NOW = True
+EMAIL_SEND_NOW = True
 
 try:
     from local import *

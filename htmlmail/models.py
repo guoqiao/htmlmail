@@ -79,7 +79,8 @@ class Send(models.Model):
                 continue
         self.status = 'done'
         self.save()
-        mailer = Mailer()
-        mailer.start()
+        if settings.EMAIL_SEND_NOW:
+            mailer = Mailer()
+            mailer.start()
         return total,success
 

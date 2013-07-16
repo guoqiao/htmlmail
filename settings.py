@@ -174,7 +174,7 @@ EMAIL_HOST_PASSWORD='******' # fill this in local.py
 EMAIL_SUBJECT_PREFIX='[html-mail]'
 
 EMAIL_BACKEND = "mailer.backend.DbBackend"
-
+MAILER_SLEEP_SECS = 1
 EMAIL_SEND_NOW = True
 
 try:
